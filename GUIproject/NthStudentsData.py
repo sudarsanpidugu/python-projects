@@ -152,7 +152,7 @@ class NTHStudentsData:
                 table_frame.place(x=10,y=60,width=950,height=550)
 
                 self.Student_Table = ttk.Treeview(table_frame,columns=('roll_no','first_name','last_name','email','mobile','course_name','fee','institute','qualification','location'))
-
+ 
                 self.Student_Table.heading('roll_no',text='Roll No')
                 self.Student_Table.heading('first_name',text='First Name')
                 self.Student_Table.heading('last_name',text='Last Name')
@@ -242,10 +242,11 @@ class NTHStudentsData:
                self.qualification_var.set(row[8])
                self.location_var.set(row[9])
 
+       
         def update_data(self):
                connection = pymysql.connect(host='localhost', user='root', password='root', db='softwaredb')
                cursor = connection.cursor()
-               cursor.execute('update softwarestudentsinto set first_name=%s, last_name=%s, emaile=%s, mobile=%s, coursename=%s, fee=%s, institution=%s, qualification=%s, location=%s where roll_no=%s',
+               cursor.execute('update softwarestudentsinto set first_name=%s, last_name=%s, email=%s, mobile=%s, course_name=%s, fee=%s, institute=%s, qualification=%s, location=%s where roll_no=%s',
                               (self.first_name_var.get(),
                               self.last_name_var.get(),
                               self.email_var.get(),
